@@ -6,17 +6,19 @@ test.describe("Register - Success Cases", () => {
 
     test("TC_REG_01:Register with valid data @regression @smoke", async({page}) =>{
         const signup = new SignupPage(page);
+        const common = new CommonPage(page);
         await signup.navigate();
-    
+        
+        const email = `test${Date.now()}@example.com`;
         await signup.registerUser({
             firstName: "Test",
             lastName: "User",
-            email: `test${Date.now()}@example.com`,
+            email,
             phone: "0812345678",
             password: "Com@sci54",
         });
     
-        await signup.expectSuccessPopupMessage();
+        await common.expectSuccessPopupMessage();
     });
 });
 

@@ -13,7 +13,7 @@ export default defineConfig({
     use: {
         headless : false,
         launchOptions: {
-            slowMo:100,
+            slowMo:500,
             },
         baseURL,
         screenshot : "only-on-failure",
