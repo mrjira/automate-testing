@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 import { SignupPageLocators } from "../fixtures/locator/signup.page";
 
 export class SignupPage {
@@ -63,18 +63,5 @@ export class SignupPage {
         await this.phone.fill(phone);
         await this.password.fill(password);
         await this.registerBtn.click();
-    }
-
-    async expectSuccessPopupMessage(){
-        await expect(
-            this.page.getByRole("heading", {name: SignupPageLocators.popupTitle})
-        ).toBeVisible();
-
-        await expect(
-            this.page.getByText(
-                SignupPageLocators.popupDescription,
-                { exact: true}
-            )
-        ).toBeVisible();
     }
 }
